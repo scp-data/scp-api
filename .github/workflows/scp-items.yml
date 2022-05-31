@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  update-items:
+  update-main-scp:
 
     runs-on: ubuntu-latest
     steps:
@@ -45,7 +45,7 @@ jobs:
       working-directory: ./scp-crawler
       run: make data/scp_items.json
 
-    - name: "Crawl Items"
+    - name: "Crawl Tales"
       working-directory: ./scp-crawler
       run: make data/scp_tales.json
 
