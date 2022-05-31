@@ -51,7 +51,7 @@ jobs:
 
     - name: "Crawl GOI"
       working-directory: ./scp-crawler
-      run: make data/scp_goi.json
+      run: make data/goi.json
 
 
     - name: "Run Post Processing"
