@@ -49,6 +49,11 @@ jobs:
       working-directory: ./scp-crawler
       run: make data/scp_tales.json
 
+    - name: "Crawl GOI"
+      working-directory: ./scp-crawler
+      run: make data/scp_goi.json
+
+
     - name: "Run Post Processing"
       working-directory: ./scp-crawler
       run: make scp_postprocess
