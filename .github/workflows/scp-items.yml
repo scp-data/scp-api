@@ -59,7 +59,7 @@ jobs:
       run: make scp_postprocess
 
     - name: "Move Files into API"
-      run: cp -Rf ./scp_crawler/data/processed/* ./scp-api/site/data/scp/
+      run: cp -Rf ./scp-crawler/data/processed/* ./scp-api/site/data/scp/
 
     - name: "Push to Github"
       uses: stefanzweifel/git-auto-commit-action@v4
