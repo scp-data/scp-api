@@ -1,0 +1,59 @@
+name: Crawl SCP Wiki
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+
+permissions:
+  contents: write
+
+jobs:
+  update-items:
+
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: "Clone this Repository"
+      uses: actions/checkout@v3
+      with:
+        path: scp-api
+
+    - name: "Clone the Crawler"
+      uses: actions/checkout@v3
+      with:
+        repository: scp-data/scp_crawler
+        ref: "main"
+        path: scp-crawler
+
+    - name: "Setup Python"
+      uses: "actions/setup-python@v2"
+
+    - name: "Install Crawler"
+      working-directory: ./scp-crawler
+      run: make install
+
+    - name: "Crawl Titles"
+      working-directory: ./scp-crawler
+      run: make data/scp_titles.json
+
+    - name: "Crawl Hubs"
+      working-directory: ./scp-crawler
+      run: make data/scp_hubs.json
+
+    - name: "Crawl Items"
+      working-directory: ./scp-crawler
+      run: make data/scp_items.json
+
+    - name: "Run Post Processing"
+      working-directory: ./scp-crawler
+      run: make scp_postprocess
+
+    - name: "Move Files into API"
+      run: cp -Rf ./scp_crawler/data/processed/* ./scp-api/site/data/scp/
+
+    - name: "Push to Github"
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Automated Crawl
+        repository: ./scp-api
