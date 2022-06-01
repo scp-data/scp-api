@@ -35,6 +35,8 @@ If an item has a `content_file` field then that file is where you can get the co
 
 ### Hub
 
+The SCP Wiki Hubs group articles together based on theme, canon, subject matter, or just whim. The Hub Dataset contains all of the Hubs with a list of the articles (Items, GOI, and Tales) that are part of that Hub.
+
 #### Data File - [data/scp/hubs/index.json](./data/scp/hubs/index.json)
 
 The Hub data is relatively small so it all exists in a single file. It is formatted as an object where the key is the `link` and the value an object with these fields (in addition to the universal field)-
@@ -45,6 +47,9 @@ The Hub data is relatively small so it all exists in a single file. It is format
 * `raw_content`
 
 ### Items
+
+The SCP Items are perhaps the most well known part of the wiki. As such the Item Dataset is the largest dataset available.
+
 
 #### Metadata File - [data/scp/items/index.json](./data/scp/items/index.json)
 
@@ -72,6 +77,8 @@ The content files themselves are identical to the items in the `Metadata File` a
 
 ### Tales
 
+Tales are short stories in the SCP universe. This datasets contain all of the tales that are not part of the GOI dataset.
+
 #### Tale Index File - [data/scp/items/index.json](./data/scp/tales/index.json)
 
 * `content_file` - the file, relative to the index.json file, that contains the content for the article.
@@ -95,10 +102,13 @@ The content index file is a key value pair object where the key is the year the 
 The content files themselves are identical to the items in the `Metadata File` above with the exception that the `content_file` field is replaced with the `raw_content` field.
 
 
-
 ### GOI
 
+GOI, or "Groups of Interest", articles are typically created in special formats to match the GOI they are portraying. This dataset contains all of the GOI articles- the specific formats used can be inferred from the tags.
+
 #### GOI Metadata File - [data/scp/goi/index.json](./data/scp/goi/index.json)
+
+The GOI structure is the same as the Tale structure.
 
 
 #### Content GOI File - [data/scp/goi/content_goi.json](./data/scp/goi/content_goi.json)
