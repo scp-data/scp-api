@@ -104,3 +104,6 @@ The content files themselves are identical to the items in the `Metadata File` a
 #### Content GOI File - [data/scp/goi/content_goi.json](./data/scp/goi/content_goi.json)
 
 The GOI items are small enough to fit in a single file. It is identical to the metadata file with the exception that the `content_file` field is replaced with the `raw_content` field.
+
+
+<script defer data-domain="scp-data.tedivm.com" src="https://plausible.io/js/plausible.js"></script>
