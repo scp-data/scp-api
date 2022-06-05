@@ -26,9 +26,10 @@ There are two ways to use this data-
 
 Each SCP Item and Tale contains both Metadata about the article as well as the content of the article itself. This project splits those into separate files so that the metadata can be used directly without needing to download the entire wiki.
 
-The content is also available for those who want it. For each page the `#page-content` item is stored. This contains the story itself but excludes navigation elements, ads, and header data. Other than running it through a simple beautifier ([beautifulsoup](https://beautiful-soup-4.readthedocs.io/en/latest/)) no changes have been made.
 
-If an item has a `content_file` field then that file is where you can get the content from. Otherwise the `raw_content` field will contain the article contents.
+The content is also available for those who want it. Content is additional broken up into two types. For each page the `#page-content` content is stored as `raw_content` alongside the `raw_source` wikitext that generated it. This contains the story itself but excludes navigation elements, ads, and header data. Other than running it through a simple beautifier ([beautifulsoup](https://beautiful-soup-4.readthedocs.io/en/latest/)) no changes have been made.
+
+If an item has a `content_file` field then that file is where you can get the content from. Otherwise the `raw_content` and `raw_source` fields will contain the article contents.
 
 
 ## SCP Main Wiki Data
@@ -72,7 +73,7 @@ In addition to the universal fields it contains-
 
 The content index file is a key value pair object where the key is the name of the `series` and the value is a filename containing the content for that series. The filename is relative to the `content_index.json` file itself.
 
-The content files themselves are identical to the items in the `Metadata File` above with the exception that the `content_file` field is replaced with the `raw_content` field.
+The content files themselves are identical to the items in the `Metadata File` above with the exception that the `content_file` field is replaced with the `raw_content` and `raw_source` fields.
 
 
 ### Tales
@@ -99,7 +100,7 @@ Tales are short stories in the SCP universe. This datasets contain all of the ta
 
 The content index file is a key value pair object where the key is the year the article was created and the value is a filename containing the content for that series. The filename is relative to the `content_index.json` file itself.
 
-The content files themselves are identical to the items in the `Metadata File` above with the exception that the `content_file` field is replaced with the `raw_content` field.
+The content files themselves are identical to the items in the `Metadata File` above with the exception that the `content_file` field is replaced with the `raw_content` and `raw_source` fields.
 
 
 ### GOI
@@ -113,7 +114,13 @@ The GOI structure is the same as the Tale structure.
 
 #### Content GOI File - [data/scp/goi/content_goi.json](./data/scp/goi/content_goi.json)
 
-The GOI items are small enough to fit in a single file. It is identical to the metadata file with the exception that the `content_file` field is replaced with the `raw_content` field.
+The GOI items are small enough to fit in a single file. It is identical to the metadata file with the exception that the `content_file` field is replaced with the `raw_content` and `raw_source` fields.
 
 
 <script defer data-domain="scp-data.tedivm.com" src="https://plausible.io/js/plausible.js"></script>
+
+## Licensing
+
+This project is not affiliated with the SCP Wiki or any of its admins.
+
+[All content from the wiki is subject to the license of the wiki.](https://scp-wiki.wikidot.com/licensing-guide)
