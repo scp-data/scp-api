@@ -3,6 +3,12 @@ name: Crawl SCP Wiki
 on:
   schedule:
     - cron: "0 0 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/scp-items.yml
+
 
 permissions:
   contents: write
@@ -26,7 +32,7 @@ jobs:
         path: scp-crawler
 
     - name: "Setup Python"
-      uses: "actions/setup-python@v2"
+      uses: actions/setup-python@v3
 
     - name: "Install Crawler"
       working-directory: ./scp-crawler
@@ -44,18 +50,25 @@ jobs:
       working-directory: ./scp-crawler
       run: make data/scp_items.json
 
+    - name: "Process Items"
+      working-directory: ./scp-crawler
+      run: make data/processed/items
+
     - name: "Crawl Tales"
       working-directory: ./scp-crawler
       run: make data/scp_tales.json
+
+    - name: "Process Tales"
+      working-directory: ./scp-crawler
+      run: make data/processed/tales
 
     - name: "Crawl GOI"
       working-directory: ./scp-crawler
       run: make data/goi.json
 
-
-    - name: "Run Post Processing"
+    - name: "Process GOI"
       working-directory: ./scp-crawler
-      run: make scp_postprocess
+      run: make data/processed/goi
 
     - name: "Move Files into API"
       run: cp -Rf ./scp-crawler/data/processed/* ./scp-api/docs/data/scp/
