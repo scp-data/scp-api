@@ -2,7 +2,7 @@ name: Crawl SCP Wiki
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 * * 1,2,3,4,5"
   push:
     branches:
       - main
