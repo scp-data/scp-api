@@ -32,7 +32,7 @@ jobs:
         path: scp-crawler
 
     - name: "Setup Python"
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
 
     - name: "Install Crawler"
       working-directory: ./scp-crawler
