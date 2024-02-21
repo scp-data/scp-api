@@ -74,7 +74,7 @@ jobs:
         shell: bash
         run: >
           cd scp-api;
-          ./scripts/push.sh;
+          ./bin/push.sh;
 
         env:
           GIT_USER: "SCP Bot"
