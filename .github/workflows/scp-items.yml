@@ -72,8 +72,10 @@ jobs:
 
       - name: "Push"
         shell: bash
-        run: "bash ${{github.workspace}}/scp-api/scripts/push.sh"
-        working-directory: ./scp-api
+        run: >
+          cd scp-api
+          ./scripts/push.sh
+
         env:
           GIT_USER: "SCP Bot"
           GIT_EMAIL: "scp@tedivm.com"
