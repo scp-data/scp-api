@@ -69,7 +69,7 @@ In addition to the universal fields it contains-
 * `scp_number` - the SCP number (SCP-682 would be 682).
 * `series` - the SCP Series that Item is part of. Includes the numbered series as well as joke, archive, and other categories.
 
-#### Content Index File - [data/scp/items/index.json](./data/scp/items/content_index.json)
+#### Content Index File - [data/scp/items/content_index.json](./data/scp/items/content_index.json)
 
 The content index file is a key value pair object where the key is the name of the `series` and the value is a filename containing the content for that series. The filename is relative to the `content_index.json` file itself.
 
@@ -80,7 +80,7 @@ The content files themselves are identical to the items in the `Metadata File` a
 
 Tales are short stories in the SCP universe. This datasets contain all of the tales that are not part of the GOI dataset.
 
-#### Tale Index File - [data/scp/items/index.json](./data/scp/tales/index.json)
+#### Tale Index File - [data/scp/tales/index.json](./data/scp/tales/index.json)
 
 * `content_file` - the file, relative to the index.json file, that contains the content for the article.
 * `created_at` - "2020-02-20T19:10:00"
@@ -96,7 +96,7 @@ Tales are short stories in the SCP universe. This datasets contain all of the ta
 * `rating` - the rating of the article based off of Wikidot votes.
 * `history`
 
-#### Content Index File - [data/scp/items/index.json](./data/scp/tales/content_index.json)
+#### Content Index File - [data/scp/tales/content_index.json](./data/scp/tales/content_index.json)
 
 The content index file is a key value pair object where the key is the year the article was created and the value is a filename containing the content for that series. The filename is relative to the `content_index.json` file itself.
 
