@@ -17,12 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Clone this Repository"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           path: scp-api
 
       - name: "Clone the Crawler"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: scp-data/scp_crawler
           ref: "main"
